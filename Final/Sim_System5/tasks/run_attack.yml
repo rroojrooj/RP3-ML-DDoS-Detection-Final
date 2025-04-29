@@ -1,0 +1,27 @@
+- name: Build attacker image for "{{ attack.name }}"
+  shell: docker build -t {{ attack.name }} {{ attack.path }}
+
+- name: Log attack start timestamp
+  shell: |
+    now_date=$(date -u +"%Y%m%d%H%M%S")
+    now_ms=$(python3 -c "from datetime import datetime; print(f'{datetime.utcnow().microsecond // 1000:03d}')")
+    now="${now_date}${now_ms}"
+    echo "$now,{{ attack.name }}" >> out/attack_timeline.csv
+
+- name: Run attacker container for "{{ attack.name }}"
+  shell: |
+    docker run -d \
+      --name {{ attack.name }} \
+      --network host \
+      {{ attack.name }}
+
+- name: Let the attack "{{ attack.name }}" run for a bit
+  pause:
+    seconds: "{{ attack_duration }}"
+
+- name: Stop and remove attacker container "{{ attack.name }}"
+  shell: docker rm -f {{ attack.name }} || true
+
+- name: Wait 10 seconds before next attack
+  pause:
+    seconds: 10
