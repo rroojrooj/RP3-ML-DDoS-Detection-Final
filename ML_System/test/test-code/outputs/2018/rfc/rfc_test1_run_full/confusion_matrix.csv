@@ -1,0 +1,6 @@
+,attacker-loic-http,attacker-goldeneye,attacker-slowloris,attacker-benign,attacker-slowhttp
+attacker-loic-http,55250,0,0,0,0
+attacker-goldeneye,49938,0,0,0,0
+attacker-slowloris,18206,0,0,0,0
+attacker-benign,31695,0,0,0,0
+attacker-slowhttp,6056,0,0,0,0
