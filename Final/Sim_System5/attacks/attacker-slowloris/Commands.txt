@@ -1,0 +1,2 @@
+docker build -t attacker-slowloris .
+docker run -d --name attacker-slowloris --network=host attacker-slowloris

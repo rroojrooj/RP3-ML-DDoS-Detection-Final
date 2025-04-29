@@ -1,0 +1,6 @@
+{
+  "requested_attacks": [
+    "svm",
+    "rfc"
+  ]
+}
