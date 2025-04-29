@@ -1,4 +1,0 @@
-docker build -t pcap-to-csv .
-docker run -d --name pcap-to-csv -v "C:/path/to/output/directory:/output" pcap-to-csv
-
-## Set "C:/path/to/output/directory" to the output directory you want in your computer for the pcap and csv files. Do NOT change the ":/output" part of that

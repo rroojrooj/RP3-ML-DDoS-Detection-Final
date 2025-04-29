@@ -1,2 +1,0 @@
-docker build -t attacker-goldeneye .
-docker run -d --name attacker-goldeneye --network=host attacker-goldeneye
