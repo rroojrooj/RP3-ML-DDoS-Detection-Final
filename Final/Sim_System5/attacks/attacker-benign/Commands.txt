@@ -1,2 +1,0 @@
-docker build -t attacker-benign .
-docker run -d --name attacker-benign --network=host attacker-benign
